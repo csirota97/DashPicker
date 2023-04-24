@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <div id="wheel">
+      <li data-store-row-wheel="0"><div>Test1</div></li>
+      <li data-store-row-wheel="1"><div>Test2</div></li>
+      <li data-store-row-wheel="2"><div>Test3</div></li>
+      <li data-store-row-wheel="3"><div>Test4</div></li>
+      <li data-store-row-wheel="4"><div>Test5</div></li>
+      <li data-store-row-wheel="5"><div>Test6</div></li>
+      <li data-store-row-wheel="6"><div>Test7</div></li>
+      <li data-store-row-wheel="7"><div>Test8</div></li>
+      <li data-store-row-wheel="8"><div>Test9</div></li>
+      <li data-store-row-wheel="9"><div>Test10</div></li>
+      <li data-store-row-wheel="10"><div>Test11</div></li>
+      <li data-store-row-wheel="11"><div>Test12</div></li>
+      <li data-store-row-wheel="12"><div>Test13</div></li>
+      <li data-store-row-wheel="13"><div>Test14</div></li>
+      <li data-store-row-wheel="14"><div>Test15</div></li>
+      <li data-store-row-wheel="15"><div>Test16</div></li>
+      <li data-store-row-wheel="16"><div>Test17</div></li>
+      <li data-store-row-wheel="17"><div>Test18</div></li>
+      <li data-store-row-wheel="18"><div>Test19</div></li>
+      <li data-store-row-wheel="19"><div>Test20</div></li>
+      <li data-store-row-wheel="20"><div>Test21</div></li>
+      <li data-store-row-wheel="21"><div>Test22</div></li>
+      <li data-store-row-wheel="22"><div>Test23</div></li>
+      <li data-store-row-wheel="23"><div>Test24</div></li>
+      <li data-store-row-wheel="24"><div>Test25</div></li>
+      <li data-store-row-wheel="25"><div>Test26</div></li>
+      <li data-store-row-wheel="26"><div>Test27</div></li>
+      <li data-store-row-wheel="27"><div>Test28</div></li>
+      <li data-store-row-wheel="28"><div>Test29</div></li>
+      <li data-store-row-wheel="29"><div>Test30</div></li>
+      <li data-store-row-wheel="30"><div>Test31</div></li>
+      <li data-store-row-wheel="31"><div>Test32</div></li>
+      <li data-store-row-wheel="32"><div>Test33</div></li>
+      <li data-store-row-wheel="33"><div>Test34</div></li>
+      <li data-store-row-wheel="0"><div>Test1</div></li>
+      <li data-store-row-wheel="1"><div>Test2</div></li>
+      <li data-store-row-wheel="2"><div>Test3</div></li>
+      <li data-store-row-wheel="3"><div>Test4</div></li>
+      <li data-store-row-wheel="4"><div>Test5</div></li>
+      <li data-store-row-wheel="5"><div>Test6</div></li>
+      <li data-store-row-wheel="6"><div>Test7</div></li>
+      <li data-store-row-wheel="7"><div>Test8</div></li>
+      <li data-store-row-wheel="8"><div>Test9</div></li>
+      <li data-store-row-wheel="9"><div>Test10</div></li>
+      <li data-store-row-wheel="10"><div>Test11</div></li>
+      <li data-store-row-wheel="11"><div>Test12</div></li>
+      <li data-store-row-wheel="12"><div>Test13</div></li>
+      <li data-store-row-wheel="13"><div>Test14</div></li>
+      <li data-store-row-wheel="14"><div>Test15</div></li>
+      <li data-store-row-wheel="15"><div>Test16</div></li>
+      <li data-store-row-wheel="16"><div>Test17</div></li>
+      <li data-store-row-wheel="17"><div>Test18</div></li>
+      <li data-store-row-wheel="18"><div>Test19</div></li>
+      <li data-store-row-wheel="19"><div>Test20</div></li>
+      <li data-store-row-wheel="20"><div>Test21</div></li>
+      <li data-store-row-wheel="21"><div>Test22</div></li>
+      <li data-store-row-wheel="22"><div>Test23</div></li>
+      <li data-store-row-wheel="23"><div>Test24</div></li>
+      <li data-store-row-wheel="24"><div>Test25</div></li>
+      <li data-store-row-wheel="25"><div>Test26</div></li>
+      <li data-store-row-wheel="26"><div>Test27</div></li>
+      <li data-store-row-wheel="27"><div>Test28</div></li>
+      <li data-store-row-wheel="28"><div>Test29</div></li>
+      <li data-store-row-wheel="29"><div>Test30</div></li>
+      <li data-store-row-wheel="30"><div>Test31</div></li>
+      <li data-store-row-wheel="31"><div>Test32</div></li>
+      <li data-store-row-wheel="32"><div>Test33</div></li>
+      <li data-store-row-wheel="33"><div>Test34</div></li>
+      <div class="dot"></div>
+    </div>
+  </ul>
+</body>
+<script>
+  rows = document.querySelectorAll('[data-store-row-wheel]')
+  rows.forEach((node, index) => {
+    console.log(node.style);
+    degreeRotation = (360/rows.length)*index
+    node.style.transform = `translateY(-50%) rotate(${degreeRotation}deg) `
+    const WIDTH = 300
+    sectionHeight = Math.tan((180/rows.length)*(Math.PI/180))*WIDTH*2
+    
+    node.style.height = `${sectionHeight}px`
+  });
+  function PickAPlace() {
+    const storeNodes = document.querySelectorAll('[data-testid="card.store"]');
+    const randomStoreIndex = Math.floor(Math.random() * storeNodes.length);
+    const randomStore = storeNodes[randomStoreIndex];
+    // console.log(randomStore.childNodes[1].childNodes[1].children[0].children[0].children[1].innerText); //Store Name
+    // console.log(randomStore.childNodes[0]); //Store Link
+
+    const spinner = document.createElement("ul");
+    const spinnerOptions = document.createElement("div");
+    spinnerOptions.id = "wheel";
+
+    storeNodes.forEach((store, index) => {
+      const storeRow = document.createElement("li");
+      const storeRowWheelAttr = document.createAttribute("data-store-row-wheel");
+      storeRowWheelAttr.value = `${index}`;
+      storeRow.setAttributeNode(storeRowWheelAttr);
+      spinnerOptions.appendChild(storeRow)
+    })
+
+    spinner.appendChild(spinnerOptions);
+    const body = document.getElementsByTagName('body')[0];
+    body.insertBefore(spinner, body.firstChild);
+
+    // randomStore.childNodes[0].click();
+  }
+  var head  = document.getElementsByTagName('head')[0];
+  var link  = document.createElement('link');
+  link.rel  = 'stylesheet';
+  link.type = 'text/css';
+  link.href = './styles.css';
+  link.media = 'all';
+  head.appendChild(link);
+
+  pickAPlaceButtonString = '<button shape="Pill" size="12" kind="BUTTON/PRIMARY" aria-pressed="false" type="button" class="styles__StyledButtonRoot-sc-1ldytso-0 hPKmJd" onclick="PickAPlace()"><span kind="BUTTON/PRIMARY" class="Inset__StyledInset-sc-1phi2ey-0 ipbHIR styles__ContentWrapper-sc-1ldytso-2 hasZAr"><span class="InlineChildren__StyledInlineChildren-sc-6r2tfo-0 gviwpu"><span class="styles__MainContentContainer-sc-1ldytso-3 qvNNS"><span overflow="truncate" display="block" class="styles__TextElement-sc-3qedjx-0 ciJJYj"><div class="InlineChildren__StyledInlineChildren-sc-6r2tfo-0 eDRbSc">Pick A Place For Me</div></span></span></span></span></button>';
+  const pickAPlaceButton = document.createElement("div");
+  pickAPlaceButton.innerHTML = pickAPlaceButtonString;
+  filtersRow = document.querySelector('[data-anchor-id="LegoHomePageFilter"]');
+  filtersRow.insertBefore(pickAPlaceButton,filtersRow.firstChild)
+
+</script>
+</html>

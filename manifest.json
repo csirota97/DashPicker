@@ -1,0 +1,14 @@
+{
+  "name": "DashPicker",
+  "version": "1.0.0",
+  "description": "A chrome extension to pick a place to eat when you can't decide for yourself",
+  "manifest_version": 3,
+  "author": "Craig Sirota",
+  
+  "content_scripts": [
+    {
+      "js": ["script.js"],
+      "matches": ["https://www.doordash.com/*","https://doordash.com/*"]
+    }
+  ]
+}
